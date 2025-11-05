@@ -16,8 +16,8 @@ For each prompt below, write your response in the space provided. Aim to answer 
 What are the core principles of encapsulation in object-oriented programming?
 
 ### Response 1
+The principle of encapsulation in object-oriented programming controls how an object and its behavior are accessed. It determines which parts of an object’s state can be viewed or modified. By keeping the state private, encapsulation hides data from outside access. The state can only be accessed or changed through getter and setter methods. This helps keep the object’s data safe and lets you make changes without breaking other parts of the code.
 
-Your response here...
 
 ---
 
@@ -39,7 +39,9 @@ First, define what a **closure** is in your own words and then explain how this 
 
 ### Response 2
 
-Your response here...
+A **closure** is a function that's declared and used inside another function that can access the variables in the outer function scope. In other words, the inner function remembers the environment in which it was created. From the given example, the `multiplyNumsBy` takes in two arguments, `nums` (an array of numbers) and `multiplier` (a number). Inside the function, **(num) => num * multiplier** uses an inner arrow function that accesses `multiplier` from the outer scope. This makes the arrow function a closure because it depends on a variable outside its own scope.
+
+
 
 ---
 
@@ -54,7 +56,7 @@ const makeAnimal = (name, species, sound) => {
   const animal = {
     name: name,
     species: species,
-    makeNoise: () => {
+    makeNoise: function() {
       console.log(`${this.name} the ${this.species} says ${sound}`)
     }
   }
@@ -76,4 +78,4 @@ Finally, update the code snippet above to fix it.
 
 ### Response 3
 
-Your response here...
+The `this` keyword refers to the object that is calling the function or to the new instance created by a constructor. The `makeNoise` method is not working because it was defined as an **arrow function**. Arrow functions inherit 'this' from the surrounding scope where the function is defined, not from the object that calls the function. In this case, `this` inside `makeNoise` does not refer to the animal object, which is why `this.name` and `this.species` were `undefined`.
